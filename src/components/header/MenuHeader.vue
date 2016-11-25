@@ -4,22 +4,18 @@
       <span class="mdl-layout-title">{{ title }}</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation" v-for="page in pages">
-        <router-link class="mdl-navigation__link" :to="page.link" >
-          {{ page.name }}
-        </router-link>
+          <a href="#"> <router-link to="/data">data</router-link> </a>
+          <a href="#"> <router-link to="/">about</router-link> </a>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-import VueRouter from 'vue-router'
-import ContentSection from '../contents/ContentSection'
 export default {
   name: 'menuHeader',
   data: function () {
     return {
-      router,
       title: 'Data Visualization',
       pages: [
         {
