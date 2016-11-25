@@ -1,28 +1,22 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+  <div id="app" class="mdl-layout mdl-js-layout">
+    <menuHeader></menuHeader>
+    <main class="mdl-layout__content">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import MenuHeader from './components/header/MenuHeader'
 
 export default {
   name: 'app',
   components: {
-    Hello
-  };
+    MenuHeader
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

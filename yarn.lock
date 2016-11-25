@@ -839,6 +839,10 @@ balanced-match@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.1.0.tgz#b504bd05869b39259dd0c5efc35d843176dccc4a"
 
+base62@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/base62/-/base62-1.1.2.tgz#22ced6a49913565bc0b8d9a11563a465c084124c"
+
 base64-arraybuffer@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.2.tgz#474df4a9f2da24e05df3158c3b1db3c3cd46a154"
@@ -919,6 +923,13 @@ boom@2.x.x:
   resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
   dependencies:
     hoek "2.x.x"
+
+bootstrap@^4.0.0-alpha.5:
+  version "4.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-alpha.5.tgz#a126b648c3bd2f52b8fad4bbc5e2d0ad2abf7064"
+  dependencies:
+    jquery "1.9.1 - 3"
+    tether "^1.3.7"
 
 brace-expansion@^1.0.0:
   version "1.1.6"
@@ -1227,7 +1238,7 @@ commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
 
-commoner@~0.10.3:
+commoner@^0.10.1, commoner@~0.10.3:
   version "0.10.8"
   resolved "https://registry.yarnpkg.com/commoner/-/commoner-0.10.8.tgz#34fc3672cd24393e8bb47e70caa0293811f4f2c5"
   dependencies:
@@ -1758,6 +1769,13 @@ entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
+envify@^3.4.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/envify/-/envify-3.4.1.tgz#d7122329e8df1688ba771b12501917c9ce5cbce8"
+  dependencies:
+    jstransform "^11.0.3"
+    through "~2.3.4"
+
 errno@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.4.tgz#b896e23a9e5e8ba33871fc996abd3635fc9a1c7d"
@@ -1939,6 +1957,10 @@ espree@^3.3.1:
   dependencies:
     acorn "^4.0.1"
     acorn-jsx "^3.0.0"
+
+esprima-fb@^15001.1.0-dev-harmony-fb:
+  version "15001.1.0-dev-harmony-fb"
+  resolved "https://registry.yarnpkg.com/esprima-fb/-/esprima-fb-15001.1.0-dev-harmony-fb.tgz#30a947303c6b8d5e955bee2b99b1d233206a6901"
 
 esprima-fb@~15001.1001.0-dev-harmony-fb:
   version "15001.1001.0-dev-harmony-fb"
@@ -2946,6 +2968,10 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
+"jquery@1.9.1 - 3":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
+
 js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -3040,6 +3066,16 @@ jsprim@^1.2.2:
     extsprintf "1.0.2"
     json-schema "0.2.3"
     verror "1.3.6"
+
+jstransform@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/jstransform/-/jstransform-11.0.3.tgz#09a78993e0ae4d4ef4487f6155a91f6190cb4223"
+  dependencies:
+    base62 "^1.1.0"
+    commoner "^0.10.1"
+    esprima-fb "^15001.1.0-dev-harmony-fb"
+    object-assign "^2.0.0"
+    source-map "^0.4.2"
 
 karma-coverage@^1.1.1:
   version "1.1.1"
@@ -3487,6 +3523,17 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+material-design-lite@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/material-design-lite/-/material-design-lite-1.2.1.tgz#09e5caab2575af8ee21b2630bff175c5a822c662"
+
+material-ui-vue@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/material-ui-vue/-/material-ui-vue-0.1.4.tgz#286ee31756591d71cd8bc07174efd59d8f03d38b"
+  dependencies:
+    uuid "^2.0.1"
+    vue "^1.0.16"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.14"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.14.tgz#39511771ed9602405fba9affff17eb4d2a3843ab"
@@ -3833,6 +3880,10 @@ number-is-nan@^1.0.0:
 oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
+
+object-assign@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-2.1.1.tgz#43c36e5d569ff8e4816c4efa8be02d26967c18aa"
 
 object-assign@^4.0.0, object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.0"
@@ -4966,7 +5017,7 @@ source-map-support@^0.4.2:
   dependencies:
     source-map "^0.5.3"
 
-source-map@0.4.x, source-map@^0.4.4, source-map@~0.4.1:
+source-map@0.4.x, source-map@^0.4.2, source-map@^0.4.4, source-map@~0.4.1:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
@@ -5173,6 +5224,10 @@ tar@~2.2.1:
     fstream "^1.0.2"
     inherits "2"
 
+tether@^1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/tether/-/tether-1.3.7.tgz#65578104741694f9672c808eae04a9adae7b0304"
+
 text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
@@ -5181,7 +5236,7 @@ throttleit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/throttleit/-/throttleit-1.0.0.tgz#9e785836daf46743145a5984b6268d828528ac6c"
 
-through@^2.3.6, through@~2.3.8:
+through@^2.3.6, through@~2.3.4, through@~2.3.8:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
@@ -5371,6 +5426,10 @@ utils-merge@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.0.tgz#0294fb922bb9375153541c4f7096231f287c8af8"
 
+uuid@^2.0.1:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+
 uuid@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.0.tgz#6728fc0459c450d796a99c31837569bdf672d728"
@@ -5451,6 +5510,12 @@ vue-template-compiler@^2.1.0:
 vue-template-es2015-compiler@^1.2.2:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.3.0.tgz#4a0f2a0bbef8b5731f78add8263cd86fe4f643ca"
+
+vue@^1.0.16:
+  version "1.0.28"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-1.0.28.tgz#ed2ff07b200bde15c87a90ef8727ceea7d38567d"
+  dependencies:
+    envify "^3.4.0"
 
 vue@^2.1.0:
   version "2.1.0"
