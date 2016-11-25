@@ -4,17 +4,15 @@
       <span class="mdl-layout-title">{{ title }}</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation" v-for="page in pages">
-        <a class="mdl-navigation__link" :href="page.link" >
+        <router-link class="mdl-navigation__link" :to="page.link" >
           {{ page.name }}
-        </a>
+        </router-link>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-import VueRouter from 'vue-router'
-
 export default {
   name: 'menuHeader',
   data: function () {

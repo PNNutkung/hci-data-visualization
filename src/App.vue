@@ -2,18 +2,19 @@
   <div id="app" class="mdl-layout mdl-js-layout">
     <menuHeader></menuHeader>
     <main class="mdl-layout__content">
-      <router-view></router-view>
+      <SectionBody></SectionBody>
     </main>
   </div>
 </template>
 
 <script>
 import MenuHeader from './components/header/MenuHeader'
-
+import SectionBody from './components/SectionBody'
 export default {
   name: 'app',
   components: {
-    MenuHeader
+    MenuHeader,
+    SectionBody
   }
 }
 </script>
