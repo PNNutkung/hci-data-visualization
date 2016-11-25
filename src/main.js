@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from './components/contents/Home'
 import Data from './components/contents/Data'
 import About from './components/contents/About'
+import ContentSection from './components/contents/ContentSection'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
