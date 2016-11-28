@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import About from '../components/contents/About.vue'
-import Data from '../components/contents/Data.vue'
+import Home from '../components/contents/Home'
+import About from '../components/contents/About'
+import Data from '../components/contents/Data'
 
 Vue.use(Router)
 
 export const routes = [
+  { path: '/', component: Home },
   { path: '/data', component: Data },
-  {path: '/', component: About},
-  {path: '*', redirect: '/'}
+  { path: '/about', component: About },
+  { path: '*', redirect: '/' }
 ]
 
 export const router = new Router({
