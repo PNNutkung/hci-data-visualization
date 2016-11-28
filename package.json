@@ -14,9 +14,10 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.5",
+    "csvtojson": "^1.0.3",
+    "firebase": "^3.6.1",
     "material-design-lite": "^1.2.1",
     "material-ui-vue": "^0.1.4",
-    "papaparse": "^4.1.2",
     "vue": "^2.1.0",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.3"
