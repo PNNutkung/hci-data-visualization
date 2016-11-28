@@ -6,10 +6,7 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-
-const firebaseApp = firebase.initializeApp(require('./../../config/config.json'))
-const db = firebaseApp.database()
+import firebaseDatabase from './../../config/firebaseConfig'
 
 export default {
   data () {
@@ -18,7 +15,8 @@ export default {
     }
   },
   firebase: {
-    avgIncomByRegion: db.ref('/average_income_by_region/')
+    avgIncomByRegion: firebaseDatabase.ref('/average_income_by_region/'),
+    avgIncomePerHousehold: firebaseDatabase.ref('/average_income_per_household/')
   }
 }
 </script>
