@@ -4,8 +4,9 @@
       <span class="mdl-layout-title">{{ title }}</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation" v-for="page in pages">
-          <a href="#"> <router-link to="/data">data</router-link> </a>
-          <a href="#"> <router-link to="/">about</router-link> </a>
+        <router-link class="mdl-navigation__link" :to="page.link" >
+          {{ page.name }}
+        </router-link>
       </nav>
     </div>
   </header>
