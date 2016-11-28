@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import App from './App'
 import { router } from './router'
-import * as firebase from 'firebase'
+import VueFire from 'vuefire'
 
-const config = JSON.parse('./config.json')
+Vue.use(VueFire)
 /* eslint-disable no-new */
-firebase.initializeApp(config)
 new Vue({
   router,
   el: '#app',

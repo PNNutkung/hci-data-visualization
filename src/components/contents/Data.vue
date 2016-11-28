@@ -5,8 +5,10 @@
 </template>
 
 <script>
-import { Converter } from 'csvtojson'
-import fs from 'fs'
+import firebase from 'firebase'
+console.log(firebase)
+const firebaseApp = firebase.initializeApp(require('./../../config/config.json'))
+const db = firebaseApp.database()
 
 export default {
   data () {
@@ -14,12 +16,8 @@ export default {
       message: 'Hello data page'
     }
   },
-  computed: {
-    parseCSVfile: function () {
-      Converter.fromFile(fs.readFileSync('./../../rawData/average_income_per_household.csv', 'utf-8'), (err, result) => {
-        return result
-      })
-    }
+  firebase: {
+    avgIncomByRegion: db.ref('average_income_by_region')
   }
 }
 </script>

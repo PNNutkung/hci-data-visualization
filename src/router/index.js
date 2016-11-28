@@ -7,8 +7,8 @@ Vue.use(Router)
 
 export const routes = [
   { path: '/data', component: Data },
-  {path: '/', component: About},
-  {path: '*', redirect: '/'}
+  { path: '/', component: About },
+  { path: '*', redirect: '/' }
 ]
 
 export const router = new Router({
