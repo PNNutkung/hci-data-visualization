@@ -1,23 +1,24 @@
 <template lang="html">
-  <header id="menu-header">
-    <md-toolbar>
-      <md-button class="md-icon-button">
-        <md-icon>menu</md-icon>
-      </md-button>
-      <h2 class="md-title" style="flex: 1">{{ title }}</h2>
-      <router-link v-for="page in pages" :to="page.link">
-        <md-button>
-          {{ page.name }}
-        </md-button>
-      </router-link>
-    </md-toolbar>
-  </header>
+  <div id="menu" class="page-content single-page">
+    <md-whiteframe md-elevation="1" class="main-header">
+      <md-toolbar>
+        <div class="md-title">
+          <span class="page-title">{{ title }}</span>
+        </div>
+
+        <router-link exact v-for="page in pages" :to="page.link">
+          <md-button>
+            {{ page.name }}
+          </md-button>
+        </router-link>
+      </md-toolbar>
+    </md-whiteframe>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'menuHeader',
-  data: function () {
+  data () {
     return {
       title: 'Data Visualization',
       pages: [
@@ -40,4 +41,7 @@ export default {
 </script>
 
 <style lang="css">
+  #menu {
+    padding-bottom: 30px;
+  }
 </style>
