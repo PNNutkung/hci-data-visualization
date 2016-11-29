@@ -1,14 +1,16 @@
 <template lang="html">
-  <header id="menu-header" class="mdl-layout__header mdl-layout__header--scroll">
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">{{ title }}</span>
-      <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation" v-for="page in pages">
-        <router-link class="mdl-navigation__link" :to="page.link" >
+  <header id="menu-header">
+    <md-toolbar>
+      <md-button class="md-icon-button">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <h2 class="md-title" style="flex: 1">{{ title }}</h2>
+      <router-link v-for="page in pages" :to="page.link">
+        <md-button>
           {{ page.name }}
-        </router-link>
-      </nav>
-    </div>
+        </md-button>
+      </router-link>
+    </md-toolbar>
   </header>
 </template>
 

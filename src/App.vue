@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="mdl-layout mdl-js-layout">
+  <div id="app" v-md-theme="'default'">
     <menuHeader></menuHeader>
-    <main class="mdl-layout__content">
+    <main>
       <ContentSection></ContentSection>
     </main>
   </div>
@@ -10,6 +10,7 @@
 <script>
 import MenuHeader from './components/header/MenuHeader'
 import ContentSection from './components/contents/ContentSection'
+import 'vue-material/dist/vue-material.css'
 
 export default {
   name: 'app',
