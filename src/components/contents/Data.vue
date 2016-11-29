@@ -1,54 +1,107 @@
 <template lang="html">
-  <div>
-    <span><h1>{{ message }}</h1></span>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-  <thead>
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Material</th>
-      <th>Quantity</th>
-      <th>Unit price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-      <td>25</td>
-      <td>$2.90</td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-      <td>50</td>
-      <td>$1.25</td>
-    </tr>
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-      <td>10</td>
-      <td>$2.35</td>
-    </tr>
-  </tbody>
-</table>
+  <div id="show-data">
+    <md-card md-with-hover>
+      <md-card-header>
+        <span><h2>{{ avgIncomeByRegionTitle }}</h2></span>
+      </md-card-header>
+      <md-table v-if="regionValidation">
+        <md-table-header>
+          <md-table-row>
+            <md-table-head>
+              Region \ Year
+            </md-table-head>
+            <md-table-head v-for="year in years">
+              {{ year }}
+            </md-table-head>
+          </md-table-row>
+        </md-table-header>
+        <md-table-body>
+          <md-table-row v-for="region in avgIncomeByRegion">
+            <md-table-cell>
+              {{ region.region }}
+            </md-table-cell>
+            <md-table-cell v-for="income in region.data">
+              {{ income }}
+            </md-table-cell>
+          </md-table-row>
+        </md-table-body>
+      </table>
+    </md-card>
+
+    <div id="household">
+      <md-card md-with-hover>
+        <md-card-header>
+          <span><h2>{{ avgIncomePerHouseholdTitle }}</h2></span>
+        </md-card-header>
+        <md-table v-if="regionValidation">
+          <md-table-header>
+            <md-table-row>
+              <md-table-head>
+                Region \ Year
+              </md-table-head>
+              <md-table-head v-for="year in years">
+                {{ year }}
+              </md-table-head>
+            </md-table-row>
+          </md-table-header>
+          <md-table-body>
+            <md-table-row v-for="household in avgIncomePerHousehold">
+              <md-table-cell>
+                {{ household.region }}
+              </md-table-cell>
+              <md-table-cell v-for="income in household.data">
+                {{ income }}
+              </md-table-cell>
+            </md-table-row>
+          </md-table-body>
+        </table>
+      </md-card>
+    </div>
   </div>
 </template>
 
 <script>
+import firebaseDatabase from './../../config/firebaseConfig'
+
 export default {
+  name: 'showData',
   data () {
     return {
-      message: 'Hello data page',
-      heads: [
-        'First name',
-        'Last name',
-        'Birthday'
-      ],
-      bods: [
-        '1',
-        '2',
-        '3'
+      avgIncomeByRegionTitle: 'Average income by region (in Baht)',
+      avgIncomePerHouseholdTitle: 'Average income per household (in Baht)',
+      years: [
+        1998,
+        2000,
+        2002,
+        2004,
+        2006,
+        2007,
+        2009,
+        2011,
+        2013,
+        2015
       ]
+    }
+  },
+  firebase: {
+    avgIncomeByRegion: firebaseDatabase.ref('/average_income_by_region/'),
+    avgIncomePerHousehold: firebaseDatabase.ref('/average_income_per_household/')
+  },
+  computed: {
+    regionValidation: function () {
+      return this.avgIncomeByRegion !== []
     }
   }
 }
 </script>
 
 <style lang="css">
+#show-data {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#household {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 </style>
