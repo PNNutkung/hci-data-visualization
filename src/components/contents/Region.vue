@@ -6,6 +6,7 @@
     <div id="central-region"></div>
     <div id="north-region"></div>
     <div id="northeast-region"></div>
+    <div id="bangkok"></div>
   </div>
 </template>
 
@@ -15,7 +16,7 @@ import c3 from 'c3'
 export default {
   data () {
     return {
-      message: 'Hello home page'
+      message: 'Average income by region.'
     }
   },
   mounted () {

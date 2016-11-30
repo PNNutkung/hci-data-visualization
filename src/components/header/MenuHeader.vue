@@ -23,8 +23,12 @@ export default {
       title: 'Data Visualization',
       pages: [
         {
-          name: 'Home',
+          name: 'Region',
           link: '/'
+        },
+        {
+          name: 'Province',
+          link: '/province'
         },
         {
           name: 'Data',
