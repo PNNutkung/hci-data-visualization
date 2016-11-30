@@ -6,7 +6,9 @@
     <div id="central-region"></div>
     <div id="north-region"></div>
     <div id="northeast-region"></div>
-    <div id="bangkok"></div>
+    <div id="south-region"></div>
+    <div id="compare-pie"></div>
+    <div id="compare-bar"></div>
   </div>
 </template>
 
@@ -169,7 +171,7 @@ export default {
       const srKeys = Object.keys(res.data[5].data)
       const srValues = Object.values(res.data[5].data)
       c3.generate({
-        bindto: '#northeast-region',
+        bindto: '#south-region',
         data: {
           x: 'x',
           columns: [
@@ -190,6 +192,49 @@ export default {
           y: {
             label: {
               text: res.data[5].region,
+              position: 'outer-middle'
+            }
+          }
+        }
+      })
+      c3.generate({
+        bindto: '#compare-pie',
+        data: {
+          columns: [
+            ['North'].concat(nrValues),
+            ['Central'].concat(crValues),
+            ['Northeast'].concat(nerValues),
+            ['Greater Bangkok'].concat(gbValues),
+            ['South'].concat(srValues)
+          ],
+          type: 'pie'
+        }
+      })
+      c3.generate({
+        bindto: '#compare-bar',
+        data: {
+          x: 'x',
+          columns: [
+            ['x'].concat(srKeys),
+            ['Central'].concat(crValues),
+            ['Northeast'].concat(nerValues),
+            ['Greater Bangkok'].concat(gbValues),
+            ['South'].concat(srValues)
+          ],
+          type: 'bar'
+        },
+        bar: {
+          width: {
+            ratio: 0.25
+          }
+        },
+        axis: {
+          x: {
+            show: true
+          },
+          y: {
+            label: {
+              text: 'Compare 4 provinces',
               position: 'outer-middle'
             }
           }
