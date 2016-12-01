@@ -216,6 +216,7 @@ export default {
           x: 'x',
           columns: [
             ['x'].concat(srKeys),
+            ['North'].concat(nrValues),
             ['Central'].concat(crValues),
             ['Northeast'].concat(nerValues),
             ['Greater Bangkok'].concat(gbValues),
@@ -234,7 +235,7 @@ export default {
           },
           y: {
             label: {
-              text: 'Compare 4 provinces',
+              text: 'Compare 5 Regions',
               position: 'outer-middle'
             }
           }
