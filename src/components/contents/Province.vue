@@ -1,10 +1,15 @@
 <template lang="html">
   <div id="province-visualize">
     <span><h1>{{ message }}</h1></span>
+    <span><h2>Bangkok</h2></span>
     <div id="bangkok"></div>
+    <span><h2>Chiangmai</h2></span>
     <div id="chiangmai"></div>
+    <span><h2>Surat Thani</h2></span>
     <div id="surat"></div>
+    <span><h2>Khon kaen</h2></span>
     <div id="khonkaen"></div>
+    <span><h2>Compare 4 Provinces</h2></span>
     <div id="compare-4"></div>
   </div>
 </template>
@@ -20,14 +25,15 @@ export default {
   },
   mounted () {
     this.axios.get('https://hci-data-visualization.firebaseio.com/average_income_per_household.json').then((res) => {
-      const bkkKeys = Object.keys(res.data[0].data)
+      const yAxisTitle = 'Income (Baht)'
+      const key = Object.keys(res.data[0].data)
       const bkkValues = Object.values(res.data[0].data)
       c3.generate({
         bindto: '#bangkok',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(bkkKeys),
+            ['x'].concat(key),
             ['Income'].concat(bkkValues)
           ],
           type: 'bar'
@@ -39,24 +45,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[0].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const chmKeys = Object.keys(res.data[26].data)
       const chmValues = Object.values(res.data[26].data)
       c3.generate({
         bindto: '#chiangmai',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(chmKeys),
+            ['x'].concat(key),
             ['Income'].concat(chmValues)
           ],
           type: 'bar'
@@ -68,24 +76,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[26].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const suKeys = Object.keys(res.data[66].data)
       const suValues = Object.values(res.data[66].data)
       c3.generate({
         bindto: '#surat',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(suKeys),
+            ['x'].concat(key),
             ['Income'].concat(suValues)
           ],
           type: 'bar'
@@ -97,24 +107,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[66].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const kkKeys = Object.keys(res.data[52].data)
       const kkValues = Object.values(res.data[52].data)
       c3.generate({
         bindto: '#khonkaen',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(kkKeys),
+            ['x'].concat(key),
             ['Income'].concat(kkValues)
           ],
           type: 'bar'
@@ -126,11 +138,14 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[52].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
@@ -141,7 +156,7 @@ export default {
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(kkKeys),
+            ['x'].concat(key),
             ['Bangkok'].concat(bkkValues),
             ['Chiang Mai'].concat(chmValues),
             ['Surat Thani'].concat(suValues),
@@ -156,11 +171,14 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: 'Compare 4 provinces',
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }

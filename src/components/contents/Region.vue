@@ -1,12 +1,19 @@
 <template lang="html">
   <div id="visualize">
     <span><h1>{{ message }}</h1></span>
+    <span><h2>Whole Country</h2></span>
     <div id="whole-kingdom"></div>
+    <span><h2>Greater Bangkok</h2></span>
     <div id="greater-bangkok"></div>
+    <span><h2>Central Region</h2></span>
     <div id="central-region"></div>
+    <span><h2>North Region</h2></span>
     <div id="north-region"></div>
+    <span><h2>Northeast Region</h2></span>
     <div id="northeast-region"></div>
+    <span><h2>South Region</h2></span>
     <div id="south-region"></div>
+    <span><h2>Compare 5 regions</h2></span>
     <div id="compare-pie"></div>
     <div id="compare-bar"></div>
   </div>
@@ -23,14 +30,15 @@ export default {
   },
   mounted () {
     this.axios.get('https://hci-data-visualization.firebaseio.com/average_income_by_region.json').then((res) => {
-      const wkKeys = Object.keys(res.data[0].data)
+      const yAxisTitle = 'Income (Baht)'
+      const key = Object.keys(res.data[0].data)
       const wkValues = Object.values(res.data[0].data)
       c3.generate({
         bindto: '#whole-kingdom',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(wkKeys),
+            ['x'].concat(key),
             ['Income'].concat(wkValues)
           ],
           type: 'bar'
@@ -42,24 +50,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[0].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const gbKeys = Object.keys(res.data[1].data)
       const gbValues = Object.values(res.data[1].data)
       c3.generate({
         bindto: '#greater-bangkok',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(gbKeys),
+            ['x'].concat(key),
             ['Income'].concat(gbValues)
           ],
           type: 'bar'
@@ -71,24 +81,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[1].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const crKeys = Object.keys(res.data[2].data)
       const crValues = Object.values(res.data[2].data)
       c3.generate({
         bindto: '#central-region',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(crKeys),
+            ['x'].concat(key),
             ['Income'].concat(crValues)
           ],
           type: 'bar'
@@ -100,24 +112,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[2].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const nrKeys = Object.keys(res.data[3].data)
       const nrValues = Object.values(res.data[3].data)
       c3.generate({
         bindto: '#north-region',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(nrKeys),
+            ['x'].concat(key),
             ['Income'].concat(nrValues)
           ],
           type: 'bar'
@@ -129,24 +143,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[3].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const nerKeys = Object.keys(res.data[4].data)
       const nerValues = Object.values(res.data[4].data)
       c3.generate({
         bindto: '#northeast-region',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(nerKeys),
+            ['x'].concat(key),
             ['Income'].concat(nerValues)
           ],
           type: 'bar'
@@ -158,24 +174,26 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[4].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
         }
       })
-      const srKeys = Object.keys(res.data[5].data)
       const srValues = Object.values(res.data[5].data)
       c3.generate({
         bindto: '#south-region',
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(srKeys),
+            ['x'].concat(key),
             ['Income'].concat(srValues)
           ],
           type: 'bar'
@@ -187,11 +205,14 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: res.data[5].region,
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
@@ -215,7 +236,7 @@ export default {
         data: {
           x: 'x',
           columns: [
-            ['x'].concat(srKeys),
+            ['x'].concat(key),
             ['North'].concat(nrValues),
             ['Central'].concat(crValues),
             ['Northeast'].concat(nerValues),
@@ -231,11 +252,14 @@ export default {
         },
         axis: {
           x: {
-            show: true
+            type: 'category',
+            label: {
+              text: 'Year'
+            }
           },
           y: {
             label: {
-              text: 'Compare 5 Regions',
+              text: yAxisTitle,
               position: 'outer-middle'
             }
           }
